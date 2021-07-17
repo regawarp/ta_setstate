@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ta_setstate/models/Movie.dart';
 import 'package:ta_setstate/services/MovieService.dart';
-import 'package:readmore/readmore.dart';
 
 void main() {
   runApp(MyApp());
@@ -250,8 +249,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                               Container(
                                                 decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.all(
-                                                      Radius.circular(20)),
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(20)),
                                                   color: Colors.amber,
                                                 ),
                                                 child: Padding(
@@ -261,7 +261,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     i.genre.toString(),
                                                     style: TextStyle(
                                                       color: Colors.white,
-                                                      fontFamily: themeFontFamily,
+                                                      fontFamily:
+                                                      themeFontFamily,
                                                     ),
                                                   ),
                                                 ),
@@ -269,15 +270,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                               SizedBox(
                                                 height: 5,
                                               ),
-                                              ReadMoreText(
-                                                i.synopsis.toString(),
-                                                trimLines: 2,
-                                                colorClickableText: Colors.pink,
-                                                trimMode: TrimMode.Line,
-                                                trimCollapsedText: 'Show more',
-                                                trimExpandedText: 'Show less',
-                                                style:
-                                                TextStyle(
+                                              Text(
+                                                i.synopsis,
+                                                style: TextStyle(
                                                   fontSize: themeFontSize,
                                                   fontFamily: themeFontFamily,
                                                 ),
@@ -348,12 +343,12 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 8:
         setState(() {
-          imageSize = [100.0,120.0];
+          imageSize = [100.0, 120.0];
         });
         break;
       case 9:
         setState(() {
-          imageSize = [120.0,140.0];
+          imageSize = [120.0, 140.0];
         });
         break;
     }
