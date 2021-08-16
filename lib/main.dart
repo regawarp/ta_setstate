@@ -10,11 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'BLoC',
+      title: 'MovDB - setState',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'MovCat - setState'),
+      home: MyHomePage(title: 'MovDB'),
     );
   }
 }
@@ -33,10 +33,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<List<Movie>> _movieList;
   String dropdownValue = '1000';
   Color cardColor = Colors.white;
-  Color titleColor = Colors.black;
-  double themeFontSize = 10;
-  String themeFontFamily = "Arial";
-  List<double> imageSize = [100.0, 120.0];
+  Color titleFontColor = Colors.black;
+  Color synopsisFontColor = Colors.black;
+  double titleFontSize = 20;
+  double synopsisFontSize = 10;
 
   @override
   void initState() {
@@ -73,71 +73,36 @@ class _MyHomePageState extends State<MyHomePage> {
               PopupMenuItem<int>(
                 value: 0,
                 child: ListTile(
-                  leading: Icon(Icons.title),
-                  title: Text('Purple Title'),
+                  leading: Icon(Icons.widgets),
+                  title: Text('Ubah background item Card'),
                 ),
               ),
               PopupMenuItem<int>(
                 value: 1,
                 child: ListTile(
                   leading: Icon(Icons.title),
-                  title: Text('Black Title'),
+                  title: Text('Ubah font-size Title'),
                 ),
               ),
               PopupMenuItem<int>(
                 value: 2,
                 child: ListTile(
-                  leading: Icon(Icons.widgets),
-                  title: Text('White Card'),
+                  leading: Icon(Icons.title),
+                  title: Text('Ubah font-color Title'),
                 ),
               ),
               PopupMenuItem<int>(
                 value: 3,
                 child: ListTile(
-                  leading: Icon(Icons.widgets),
-                  title: Text('Purple Card'),
+                  leading: Icon(Icons.text_fields),
+                  title: Text('Ubah font-size Synopsis'),
                 ),
               ),
               PopupMenuItem<int>(
                 value: 4,
                 child: ListTile(
                   leading: Icon(Icons.text_fields),
-                  title: Text('Small Font'),
-                ),
-              ),
-              PopupMenuItem<int>(
-                value: 5,
-                child: ListTile(
-                  leading: Icon(Icons.format_size),
-                  title: Text('Large Font'),
-                ),
-              ),
-              PopupMenuItem<int>(
-                value: 6,
-                child: ListTile(
-                  leading: Icon(Icons.text_format),
-                  title: Text('Arial Font'),
-                ),
-              ),
-              PopupMenuItem<int>(
-                value: 7,
-                child: ListTile(
-                  leading: Icon(Icons.text_format),
-                  title: Text('Roboto Font'),
-                ),
-              ),
-              PopupMenuItem<int>(
-                value: 8,
-                child: ListTile(
-                  leading: Icon(Icons.zoom_out),
-                  title: Text('Small Picture'),
-                ),
-              ),
-              PopupMenuItem<int>(
-                value: 9,
-                child: ListTile(
-                  leading: Icon(Icons.zoom_in),
-                  title: Text('Large Picture'),
+                  title: Text('Ubah font-color Synopsis'),
                 ),
               ),
             ],
@@ -219,8 +184,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Flexible(
                                         flex: 1,
                                         child: Container(
-                                          height: imageSize[1],
-                                          width: imageSize[0],
+                                          height: 120,
+                                          width: 100,
                                           decoration: BoxDecoration(
                                               image: DecorationImage(
                                                   image: AssetImage(
@@ -240,8 +205,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 i.title.toString(),
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 20,
-                                                  color: titleColor,
+                                                  fontSize: titleFontSize,
+                                                  color: titleFontColor,
                                                 ),
                                               ),
                                               SizedBox(
@@ -261,8 +226,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     i.genre.toString(),
                                                     style: TextStyle(
                                                       color: Colors.white,
-                                                      fontFamily:
-                                                      themeFontFamily,
                                                     ),
                                                   ),
                                                 ),
@@ -273,8 +236,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Text(
                                                 i.synopsis,
                                                 style: TextStyle(
-                                                  fontSize: themeFontSize,
-                                                  fontFamily: themeFontFamily,
+                                                  fontSize: synopsisFontSize,
+                                                  color: synopsisFontColor,
                                                 ),
                                               ),
                                             ],
@@ -303,52 +266,27 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (item) {
       case 0:
         setState(() {
-          titleColor = Colors.purple;
+          cardColor = Colors.purple;
         });
         break;
       case 1:
         setState(() {
-          titleColor = Colors.black;
+          titleFontSize = 25;
         });
         break;
       case 2:
         setState(() {
-          cardColor = Colors.white;
+          titleFontColor = Colors.purpleAccent;
         });
         break;
       case 3:
         setState(() {
-          cardColor = Colors.purpleAccent;
+          synopsisFontSize = 20;
         });
         break;
       case 4:
         setState(() {
-          themeFontSize = 10;
-        });
-        break;
-      case 5:
-        setState(() {
-          themeFontSize = 20;
-        });
-        break;
-      case 6:
-        setState(() {
-          themeFontFamily = "Arial";
-        });
-        break;
-      case 7:
-        setState(() {
-          themeFontFamily = "Roboto";
-        });
-        break;
-      case 8:
-        setState(() {
-          imageSize = [100.0, 120.0];
-        });
-        break;
-      case 9:
-        setState(() {
-          imageSize = [120.0, 140.0];
+          synopsisFontColor = Colors.purpleAccent;
         });
         break;
     }
